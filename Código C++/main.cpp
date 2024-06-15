@@ -8,9 +8,9 @@ int main (){
 	
 	setlocale(LC_ALL, "spanish"); //Permite utilizar tildes en la consola de C++
 	
-	// Variables constantes para el ahorro energético según la hora del día
+	// Variables constantes para el ahorro energÃ©tico segÃºn la hora del dÃ­a
 	const float ModoAhorroMax = 0.80;  // 80% de ahorro durante la noche
-	const float ModoAhorroMin = 0.25;    // 25% de ahorro durante el día
+	const float ModoAhorroMin = 0.25;    // 25% de ahorro durante el dÃ­a
 	
 	// Declaracion de variables
 	int horaInicioAhorro = 0;
@@ -26,8 +26,8 @@ int main (){
 	float ahorroConsumoElectrico = 0.0;
 	string modoAhorro;
 
-	// Configuración inicial
-	printf("Configuración inicial del sistema de gestión energética\n");
+	// ConfiguraciÃ³n inicial
+	printf("ConfiguraciÃ³n inicial del sistema de gestiÃ³n energÃ©tica\n");
 	printf("Horario de inicio del modo ahorro (24h): ");
 	scanf("%i", &horaInicioAhorro);
 	printf("Horario de fin del modo ahorro (24h): ");
@@ -38,7 +38,7 @@ int main (){
 	
 	printf("********************************************************** \n");
 	printf("*                                                        * \n");
-	printf("*         Sistema de Gestión de Edificios (BMS)          * \n");
+	printf("*         Sistema de GestiÃ³n de Edificios (BMS)          * \n");
 	printf("*                                                        * \n");
 	printf("********************************************************** \n");
 	
@@ -46,13 +46,13 @@ int main (){
 		
 		printf("Ingrese la hora actual (en formato 24h): \n");
 		scanf("%i", &hora);
-		printf("Ingrese la temperatura actual (en °C): \n");
+		printf("Ingrese la temperatura actual (en Â°C): \n");
 		scanf("%f", &temperatura);
-		printf("Ingrese el consumo de la iluminación (En kWh): \n" );
+		printf("Ingrese el consumo de la iluminaciÃ³n (En kWh): \n" );
 		scanf("%f", &iluminacion);
-		printf("Ingrese el consumo de la climatización: \n");
+		printf("Ingrese el consumo de la climatizaciÃ³n: \n");
 		scanf("%f", &climatizacion);
-		printf("Ingrese el consumo eléctrico: \n");
+		printf("Ingrese el consumo elÃ©ctrico: \n");
 		scanf("%f", &consumoElectrico);
 		printf("\n");
 		
@@ -63,7 +63,7 @@ int main (){
 		printf("Consumo Iluminacion: %0.2f kWh\n",iluminacion);
 		printf("Consumo Calefaccion: %0.2f kWh\n",climatizacion);
 		printf("Consumo Electrico: %0.2f kWh\n",consumoElectrico);
-		printf("Temperatura: %0.2f °C\n",temperatura);
+		printf("Temperatura: %0.2f Â°C\n",temperatura);
 		printf("****************************************************\n");
 		
 		if (hora>=horaInicioAhorro || hora < horaFinAhorro){
@@ -73,7 +73,7 @@ int main (){
 			ahorroConsumoElectrico += (consumoElectrico*ModoAhorroMax);
 			consumoAhorrado += consumoElectrico * ModoAhorroMax + climatizacion * ModoAhorroMax;
 			consumoElectrico *= (1 - ModoAhorroMax);
-			iluminacion *= (1 - ModoAhorroMax); //menos luces encendidas
+			iluminacion *= (1 - ModoAhorroMax); 
 			climatizacion *= (1 - ModoAhorroMax);
 			
 		}else{
@@ -97,11 +97,11 @@ int main (){
 		printf("Consumo Iluminacion: %0.2f kWh\n",iluminacion);
 		printf("Consumo Calefaccion: %0.2f kWh\n",climatizacion);
 		printf("Consumo Electrico: %0.2f kWh\n",consumoElectrico);
-		printf("Temperatura: %0.2f °C\n",temperatura);
+		printf("Temperatura: %0.2f Â°C\n",temperatura);
 		printf("****************************************************\n");
 		
 		printf("\n");
-		printf("¿Desea ingresar otros valores? \n");
+		printf("Â¿Desea ingresar otros valores? \n");
 		printf("1. Si \n");
 		printf("2. Salir\n");
 		scanf("%i", &opcionMenu);
@@ -111,10 +111,10 @@ int main (){
 	
 	printf("\n");
 	printf("****************************************************\n");
-	printf("Estadísticas \n");
+	printf("EstadÃ­sticas \n");
 	printf("Consumo de Iluminacion Ahorrado: %0.2f kWh\n",ahorroIluminacion);
-	printf("Consumo de Climatización Ahorrado: %0.2f kWh\n",ahorroClimatizacion);
-	printf("Consumo de Energía Eléctrica Ahorrado: %0.2f kWh\n",ahorroConsumoElectrico);
+	printf("Consumo de ClimatizaciÃ³n Ahorrado: %0.2f kWh\n",ahorroClimatizacion);
+	printf("Consumo de EnergÃ­a ElÃ©ctrica Ahorrado: %0.2f kWh\n",ahorroConsumoElectrico);
 	printf("Consumo Total Ahorrado: %0.2fkWh\n",consumoAhorrado);
 	printf("****************************************************\n");
 	
